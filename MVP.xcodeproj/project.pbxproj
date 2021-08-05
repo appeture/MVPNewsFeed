@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8435BA7926B8FAC400403ADB /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435BA7826B8FAC400403ADB /* UILabel.swift */; };
+		8435BA7C26B8FDE400403ADB /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435BA7B26B8FDE400403ADB /* ModuleBuilder.swift */; };
+		8435BA8426BC332A00403ADB /* StrechyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435BA8326BC332A00403ADB /* StrechyHeaderView.swift */; };
+		8435BA8626BC3A3700403ADB /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435BA8526BC3A3700403ADB /* NewsFeedViewController.swift */; };
+		844C34D026B32847002F0EF0 /* NewsFeedTableViewPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34CF26B32847002F0EF0 /* NewsFeedTableViewPresentor.swift */; };
+		844C34D226B32E02002F0EF0 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34D126B32E02002F0EF0 /* NewsFeed.swift */; };
+		844C34D826B32E54002F0EF0 /* NewsFeedNetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34D726B32E54002F0EF0 /* NewsFeedNetworkServices.swift */; };
+		844C34DA26B44C5C002F0EF0 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34D926B44C5C002F0EF0 /* NewsFeedTableViewCell.swift */; };
+		844C34DC26B45E33002F0EF0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34DB26B45E33002F0EF0 /* UIFont.swift */; };
+		844C34E026B46198002F0EF0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34DF26B46198002F0EF0 /* String.swift */; };
+		8499D24B26AD799F00E389FA /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499D24A26AD799F00E389FA /* UIStackView.swift */; };
+		849B85DE26B5304900941432 /* NewsFeedTableViewCellPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B85DD26B5304900941432 /* NewsFeedTableViewCellPresentor.swift */; };
 		84A652A8269F327400432EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A652A7269F327400432EFB /* AppDelegate.swift */; };
 		84A652B1269F327700432EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A652B0269F327700432EFB /* Assets.xcassets */; };
 		84A652B4269F327700432EFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A652B2269F327700432EFB /* LaunchScreen.storyboard */; };
 		84A652C2269F328A00432EFB /* MVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A652C1269F328A00432EFB /* MVPTests.swift */; };
 		84A652CA269F32B200432EFB /* TaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A652C9269F32B200432EFB /* TaskTests.swift */; };
-		84A652CC269F337500432EFB /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A652CB269F337500432EFB /* Task.swift */; };
-		84A652D3269F3EB300432EFB /* ToDoListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A652D2269F3EB300432EFB /* ToDoListTableViewController.swift */; };
-		84F0D55726A2BB1D00AE1B4C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0D55626A2BB1D00AE1B4C /* TaskCell.swift */; };
-		84F0D55926A2DF6600AE1B4C /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0D55826A2DF6600AE1B4C /* TaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8435BA7826B8FAC400403ADB /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		8435BA7B26B8FDE400403ADB /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		8435BA8326BC332A00403ADB /* StrechyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrechyHeaderView.swift; sourceTree = "<group>"; };
+		8435BA8526BC3A3700403ADB /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		844C34CF26B32847002F0EF0 /* NewsFeedTableViewPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewPresentor.swift; sourceTree = "<group>"; };
+		844C34D126B32E02002F0EF0 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
+		844C34D726B32E54002F0EF0 /* NewsFeedNetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedNetworkServices.swift; sourceTree = "<group>"; };
+		844C34D926B44C5C002F0EF0 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
+		844C34DB26B45E33002F0EF0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		844C34DF26B46198002F0EF0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8499D24A26AD799F00E389FA /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		849B85DD26B5304900941432 /* NewsFeedTableViewCellPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellPresentor.swift; sourceTree = "<group>"; };
 		84A652A4269F327400432EFB /* MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A652A7269F327400432EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A652B0269F327700432EFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,10 +58,6 @@
 		84A652C1269F328A00432EFB /* MVPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPTests.swift; sourceTree = "<group>"; };
 		84A652C3269F328A00432EFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A652C9269F32B200432EFB /* TaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTests.swift; sourceTree = "<group>"; };
-		84A652CB269F337500432EFB /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		84A652D2269F3EB300432EFB /* ToDoListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewController.swift; sourceTree = "<group>"; };
-		84F0D55626A2BB1D00AE1B4C /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		84F0D55826A2DF6600AE1B4C /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +78,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8435BA8226BC276600403ADB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84A652A7269F327400432EFB /* AppDelegate.swift */,
+				84A652B2269F327700432EFB /* LaunchScreen.storyboard */,
+				84A652B0269F327700432EFB /* Assets.xcassets */,
+				84A652B5269F327700432EFB /* Info.plist */,
+				8435BA7B26B8FDE400403ADB /* ModuleBuilder.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		844C34CE26B3282B002F0EF0 /* NewsFeedModule */ = {
+			isa = PBXGroup;
+			children = (
+				849B85DB26B52B5500941432 /* Presentor */,
+				849B85D926B52B1F00941432 /* View */,
+			);
+			path = NewsFeedModule;
+			sourceTree = "<group>";
+		};
+		844C34D526B32E1F002F0EF0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				844C34D626B32E31002F0EF0 /* NetworkServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		844C34D626B32E31002F0EF0 /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				844C34D726B32E54002F0EF0 /* NewsFeedNetworkServices.swift */,
+			);
+			path = NetworkServices;
+			sourceTree = "<group>";
+		};
+		8499D24826AD797E00E389FA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8499D24926AD798800E389FA /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8499D24926AD798800E389FA /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8499D24A26AD799F00E389FA /* UIStackView.swift */,
+				844C34DB26B45E33002F0EF0 /* UIFont.swift */,
+				844C34DF26B46198002F0EF0 /* String.swift */,
+				8435BA7826B8FAC400403ADB /* UILabel.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		849B85D926B52B1F00941432 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				844C34D926B44C5C002F0EF0 /* NewsFeedTableViewCell.swift */,
+				8435BA8326BC332A00403ADB /* StrechyHeaderView.swift */,
+				8435BA8526BC3A3700403ADB /* NewsFeedViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		849B85DB26B52B5500941432 /* Presentor */ = {
+			isa = PBXGroup;
+			children = (
+				844C34CF26B32847002F0EF0 /* NewsFeedTableViewPresentor.swift */,
+				849B85DD26B5304900941432 /* NewsFeedTableViewCellPresentor.swift */,
+			);
+			path = Presentor;
+			sourceTree = "<group>";
+		};
 		84A6529B269F327400432EFB = {
 			isa = PBXGroup;
 			children = (
@@ -83,12 +174,11 @@
 		84A652A6269F327400432EFB /* MVP */ = {
 			isa = PBXGroup;
 			children = (
-				84A652A7269F327400432EFB /* AppDelegate.swift */,
+				844C34D526B32E1F002F0EF0 /* Services */,
+				844C34CE26B3282B002F0EF0 /* NewsFeedModule */,
+				8499D24826AD797E00E389FA /* Extensions */,
 				84A652CD269F337A00432EFB /* Models */,
-				84A652D4269F3EB900432EFB /* Views */,
-				84A652B0269F327700432EFB /* Assets.xcassets */,
-				84A652B2269F327700432EFB /* LaunchScreen.storyboard */,
-				84A652B5269F327700432EFB /* Info.plist */,
+				8435BA8226BC276600403ADB /* Supporting Files */,
 			);
 			path = MVP;
 			sourceTree = "<group>";
@@ -106,7 +196,7 @@
 		84A652CD269F337A00432EFB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				84A652CB269F337500432EFB /* Task.swift */,
+				844C34D126B32E02002F0EF0 /* NewsFeed.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -117,16 +207,6 @@
 				84A652C9269F32B200432EFB /* TaskTests.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		84A652D4269F3EB900432EFB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				84A652D2269F3EB300432EFB /* ToDoListTableViewController.swift */,
-				84F0D55626A2BB1D00AE1B4C /* TaskCell.swift */,
-				84F0D55826A2DF6600AE1B4C /* TaskViewController.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,11 +308,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F0D55726A2BB1D00AE1B4C /* TaskCell.swift in Sources */,
-				84A652CC269F337500432EFB /* Task.swift in Sources */,
-				84F0D55926A2DF6600AE1B4C /* TaskViewController.swift in Sources */,
+				844C34D826B32E54002F0EF0 /* NewsFeedNetworkServices.swift in Sources */,
+				8435BA7C26B8FDE400403ADB /* ModuleBuilder.swift in Sources */,
+				8435BA7926B8FAC400403ADB /* UILabel.swift in Sources */,
+				8435BA8426BC332A00403ADB /* StrechyHeaderView.swift in Sources */,
+				8499D24B26AD799F00E389FA /* UIStackView.swift in Sources */,
+				844C34D226B32E02002F0EF0 /* NewsFeed.swift in Sources */,
+				849B85DE26B5304900941432 /* NewsFeedTableViewCellPresentor.swift in Sources */,
+				844C34E026B46198002F0EF0 /* String.swift in Sources */,
+				844C34DC26B45E33002F0EF0 /* UIFont.swift in Sources */,
 				84A652A8269F327400432EFB /* AppDelegate.swift in Sources */,
-				84A652D3269F3EB300432EFB /* ToDoListTableViewController.swift in Sources */,
+				844C34DA26B44C5C002F0EF0 /* NewsFeedTableViewCell.swift in Sources */,
+				844C34D026B32847002F0EF0 /* NewsFeedTableViewPresentor.swift in Sources */,
+				8435BA8626BC3A3700403ADB /* NewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +478,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6LLNL69R8U;
-				INFOPLIST_FILE = MVP/Info.plist;
+				INFOPLIST_FILE = "MVP/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,7 +497,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6LLNL69R8U;
-				INFOPLIST_FILE = MVP/Info.plist;
+				INFOPLIST_FILE = "MVP/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

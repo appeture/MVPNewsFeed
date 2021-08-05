@@ -16,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: ToDoListTableViewController())
+        
+        let view = ModuleBuilder.createNewsFeedModule()
+//        let view = NewsFeedViewController()
+        window?.rootViewController = UINavigationController(rootViewController: view)
         
         return true
     }
