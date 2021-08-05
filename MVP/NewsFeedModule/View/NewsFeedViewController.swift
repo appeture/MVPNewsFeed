@@ -18,7 +18,7 @@ class NewsFeedViewController: UIViewController {
     private var activityIndicator = UIActivityIndicatorView()
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(NewsFeedTableViewCell.self, forCellReuseIdentifier: "NewsFeedCell")
+        tableView.register(NewsFeedCell.self, forCellReuseIdentifier: "NewsFeedCell")
         return tableView
     }()
     
@@ -30,7 +30,6 @@ class NewsFeedViewController: UIViewController {
         presentor.getNews()
         configureNavBar()
         
-        
     }
     
     
@@ -39,6 +38,8 @@ class NewsFeedViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        tableView.rowHeight = 100
+    
         
         let header = StrechyTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width))
         guard let imagedata = presentor.image else { return }
@@ -90,7 +91,7 @@ extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell", for: indexPath) as! NewsFeedTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell", for: indexPath) as! NewsFeedCell
         cell.presentor = NewsFeedTableViewCellPresentor(view: cell, model: presentor.rawNews![indexPath.row])
         
         return cell
@@ -112,12 +113,12 @@ extension NewsFeedViewController: UIScrollViewDelegate {
 
 extension NewsFeedViewController: NewsFeedTableViewControllerProtocol {
     func newsDidLoaded() {
-        DispatchQueue.main.async {
+        
             self.setupTableView()
             self.tableView.reloadData()
             self.tableView.separatorStyle = .singleLine
             self.activityIndicator.stopAnimating()
-        }
+        
         
     }
 }

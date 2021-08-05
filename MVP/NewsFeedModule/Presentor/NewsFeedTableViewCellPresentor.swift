@@ -25,7 +25,6 @@ class NewsFeedTableViewCellPresentor: NewsFeedTableViewCellPresentorProtocol {
         view.setDate(with: model.publishedAt ?? "no date")
     }
     
-    
     func configureImageCell() {
         let networkService = NewsFeedNetworkServices()
         networkService.getImageData(

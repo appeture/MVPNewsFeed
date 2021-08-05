@@ -9,8 +9,8 @@ import Foundation
 
 protocol NewsFeedTableViewPresentorInputProtocol {
     func getNews()
-    var rawNews: [Article]? { get set }
-    var image: Data? { get set }
+    var rawNews: [Article]? { get }
+    var image: Data? { get }
 }
 
 protocol NewsFeedPresentorOutputProtocol {

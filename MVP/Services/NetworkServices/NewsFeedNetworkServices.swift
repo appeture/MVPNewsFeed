@@ -24,20 +24,22 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, _, error in
-            
-            if let error = error {
-                completion(.failure(error))
-                return
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                guard let data = data else { return }
+                
+                do {
+                    let newsFeed = try JSONDecoder().decode(NewsFeed.self, from: data)
+                    completion(.success(newsFeed.articles))
+                } catch let error {
+                    completion(.failure(error))
+                }
             }
-            guard let data = data else { return }
+            }.resume()
             
-            do {
-                let newsFeed = try JSONDecoder().decode(NewsFeed.self, from: data)
-                completion(.success(newsFeed.articles))
-            } catch let error {
-                completion(.failure(error))
-            }
-        }.resume()
     }
     
 
@@ -45,9 +47,10 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
         
         guard let url = URL(string: url ?? "") else { return }
         
-        guard let imageData = try? Data(contentsOf: url) else { return }
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            completion(imageData)
         
-        completion(imageData)
+        
     }
     
 }

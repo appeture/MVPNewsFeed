@@ -11,6 +11,7 @@
 		8435BA7C26B8FDE400403ADB /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435BA7B26B8FDE400403ADB /* ModuleBuilder.swift */; };
 		8435BA8426BC332A00403ADB /* StrechyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435BA8326BC332A00403ADB /* StrechyHeaderView.swift */; };
 		8435BA8626BC3A3700403ADB /* NewsFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435BA8526BC3A3700403ADB /* NewsFeedViewController.swift */; };
+		8435BAC626BC7DB300403ADB /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435BAC526BC7DB300403ADB /* NewsFeedCell.swift */; };
 		844C34D026B32847002F0EF0 /* NewsFeedTableViewPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34CF26B32847002F0EF0 /* NewsFeedTableViewPresentor.swift */; };
 		844C34D226B32E02002F0EF0 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34D126B32E02002F0EF0 /* NewsFeed.swift */; };
 		844C34D826B32E54002F0EF0 /* NewsFeedNetworkServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34D726B32E54002F0EF0 /* NewsFeedNetworkServices.swift */; };
@@ -41,6 +42,7 @@
 		8435BA7B26B8FDE400403ADB /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		8435BA8326BC332A00403ADB /* StrechyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrechyHeaderView.swift; sourceTree = "<group>"; };
 		8435BA8526BC3A3700403ADB /* NewsFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewController.swift; sourceTree = "<group>"; };
+		8435BAC526BC7DB300403ADB /* NewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCell.swift; sourceTree = "<group>"; };
 		844C34CF26B32847002F0EF0 /* NewsFeedTableViewPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewPresentor.swift; sourceTree = "<group>"; };
 		844C34D126B32E02002F0EF0 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		844C34D726B32E54002F0EF0 /* NewsFeedNetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedNetworkServices.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				844C34D926B44C5C002F0EF0 /* NewsFeedTableViewCell.swift */,
+				8435BAC526BC7DB300403ADB /* NewsFeedCell.swift */,
 				8435BA8326BC332A00403ADB /* StrechyHeaderView.swift */,
 				8435BA8526BC3A3700403ADB /* NewsFeedViewController.swift */,
 			);
@@ -312,6 +315,7 @@
 				8435BA7C26B8FDE400403ADB /* ModuleBuilder.swift in Sources */,
 				8435BA7926B8FAC400403ADB /* UILabel.swift in Sources */,
 				8435BA8426BC332A00403ADB /* StrechyHeaderView.swift in Sources */,
+				8435BAC626BC7DB300403ADB /* NewsFeedCell.swift in Sources */,
 				8499D24B26AD799F00E389FA /* UIStackView.swift in Sources */,
 				844C34D226B32E02002F0EF0 /* NewsFeed.swift in Sources */,
 				849B85DE26B5304900941432 /* NewsFeedTableViewCellPresentor.swift in Sources */,
@@ -406,7 +410,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -461,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

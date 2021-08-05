@@ -76,7 +76,8 @@ class NewsFeedTableViewCell: UITableViewCell {
             newFeedImage.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             newFeedImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
             newFeedImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            newFeedImage.widthAnchor.constraint(equalToConstant: bounds.width / 3),
+//            newFeedImage.widthAnchor.constraint(equalToConstant: bounds.width / 3),
+            newFeedImage.widthAnchor.constraint(equalToConstant: 50),
             newFeedImage.heightAnchor.constraint(equalTo: newFeedImage.widthAnchor, constant: 0)
         ])
     }
