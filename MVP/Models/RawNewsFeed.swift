@@ -1,12 +1,12 @@
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let newsFeed = try? newJSONDecoder().decode(NewsFeed.self, from: jsonData)
+//   let newsFeed = try? newJSONDecoder().decode(RawNewsFeed.self, from: jsonData)
 
 import Foundation
 
 // MARK: - NewsFeed
-struct NewsFeed: Codable {
+struct RawNewsFeed: Codable {
     let status: String?
     let totalResults: Int?
     let articles: [Article]?

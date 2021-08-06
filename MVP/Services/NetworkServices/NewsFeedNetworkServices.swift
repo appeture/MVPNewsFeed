@@ -32,7 +32,7 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
                 guard let data = data else { return }
                 
                 do {
-                    let newsFeed = try JSONDecoder().decode(NewsFeed.self, from: data)
+                    let newsFeed = try JSONDecoder().decode(RawNewsFeed.self, from: data)
                         completion(.success(newsFeed.articles))
                 } catch let error {
                     completion(.failure(error))
