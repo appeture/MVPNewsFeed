@@ -24,7 +24,7 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
         let request = URLRequest(url: url)
         
         URLSession.shared.dataTask(with: request) { data, _, error in
-            DispatchQueue.main.async {
+            DispatchQueue.global(qos: .utility).async {
                 if let error = error {
                     completion(.failure(error))
                     return
@@ -33,7 +33,7 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
                 
                 do {
                     let newsFeed = try JSONDecoder().decode(NewsFeed.self, from: data)
-                    completion(.success(newsFeed.articles))
+                        completion(.success(newsFeed.articles))
                 } catch let error {
                     completion(.failure(error))
                 }
@@ -46,10 +46,13 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
     func getImageData(from url: String?, completion: @escaping(Data?) -> Void) {
         
         guard let url = URL(string: url ?? "") else { return }
-        
+        DispatchQueue.global(qos: .utility).async {
             guard let imageData = try? Data(contentsOf: url) else { return }
-            completion(imageData)
-        
+            DispatchQueue.main.async {
+                completion(imageData)
+            }
+            
+        }
         
     }
     

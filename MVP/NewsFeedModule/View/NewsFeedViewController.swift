@@ -18,7 +18,7 @@ class NewsFeedViewController: UIViewController {
     private var activityIndicator = UIActivityIndicatorView()
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(NewsFeedCell.self, forCellReuseIdentifier: "NewsFeedCell")
+        tableView.register(NewsFeedTableViewCell.self, forCellReuseIdentifier: "NewsFeedCell")
         return tableView
     }()
     
@@ -91,7 +91,7 @@ extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell", for: indexPath) as! NewsFeedCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell", for: indexPath) as! NewsFeedTableViewCell
         cell.presentor = NewsFeedTableViewCellPresentor(view: cell, model: presentor.rawNews![indexPath.row])
         
         return cell
@@ -113,12 +113,8 @@ extension NewsFeedViewController: UIScrollViewDelegate {
 
 extension NewsFeedViewController: NewsFeedTableViewControllerProtocol {
     func newsDidLoaded() {
-        
             self.setupTableView()
             self.tableView.reloadData()
-            self.tableView.separatorStyle = .singleLine
             self.activityIndicator.stopAnimating()
-        
-        
     }
 }
