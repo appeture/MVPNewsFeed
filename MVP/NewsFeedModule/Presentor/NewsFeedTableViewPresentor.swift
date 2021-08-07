@@ -9,46 +9,73 @@ import Foundation
 
 protocol NewsFeedTableViewPresentorInputProtocol {
     func getNews()
-    var rawNews: [Article]? { get }
-    var image: Data? { get }
+    
+    var newsFeed: [News] { get }
 }
 
 protocol NewsFeedPresentorOutputProtocol {
-    init(view: NewsFeedTableViewControllerProtocol, networkServices: NetworkServicesProtocol)
+    init(view: NewsFeedTableViewControllerProtocol, networkServices: NetworkServicesProtocol, storageServices: StorageManagerProtocol)
 }
 
 class NewsFeedPresentor: NewsFeedPresentorOutputProtocol, NewsFeedTableViewPresentorInputProtocol {
-
+    
     weak var view: NewsFeedTableViewControllerProtocol!
     private var networkServices: NetworkServicesProtocol!
+    private let storageServices: StorageManagerProtocol!
+    var newsFeed: [News] = []
     
-    var rawNews: [Article]?
-    var image: Data? = nil
     
-    required init(view: NewsFeedTableViewControllerProtocol, networkServices: NetworkServicesProtocol) {
+    required init(view: NewsFeedTableViewControllerProtocol,
+                  networkServices: NetworkServicesProtocol,
+                  storageServices: StorageManagerProtocol) {
         self.view = view
         self.networkServices = networkServices
+        self.storageServices = storageServices
+        getNewsFromDB()
     }
     
+    
     func getNews() {
-        networkServices.getNews { [weak self] result in
-            guard let self = self else { return }
-            
+        if newsFeed.isEmpty {
+            downloadNewsFromNetworkService()
+        }
+        self.view.newsDidLoaded()
+    }
+    
+    private func getNewsFromDB() {
+        storageServices.fetchData { result in
             switch result {
             case .success(let news):
-                self.rawNews = news
-                self.getImageForHeader()
+                self.newsFeed = news
             case .failure(let error):
                 print(error)
             }
         }
     }
-    func getImageForHeader() {
-        let url = rawNews?.first?.urlToImage
-        networkServices.getImageData(from: url) { imageData in
-            self.image = imageData
-            self.view.newsDidLoaded()
+    
+    private func downloadNewsFromNetworkService() {
+        
+        networkServices.getNews { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let rawNews):
+                self.saveNewsInDB(rawNews: rawNews)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        getNewsFromDB()
+    }
+    
+    private func saveNewsInDB(rawNews: [Article]?) {
+        rawNews?.forEach { news in
+            networkServices.getImageData(from: news.urlToImage) { image in
+                self.storageServices.save(news, imageData: image)
+            }
+            
         }
     }
-        
+    
 }

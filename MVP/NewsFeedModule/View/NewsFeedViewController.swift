@@ -24,7 +24,7 @@ class NewsFeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = .white
         activityIndicator = setupActivityIndicator(in: view)
         presentor.getNews()
@@ -42,8 +42,8 @@ class NewsFeedViewController: UIViewController {
     
         
         let header = StrechyTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width))
-        guard let imagedata = presentor.image else { return }
-        header.imageView.image = UIImage(data: imagedata)
+        guard let imageForHeader = presentor.newsFeed.first?.image else { return }
+        header.imageView.image = UIImage(data: imageForHeader)
         tableView.tableHeaderView = header
     }
     
@@ -87,12 +87,15 @@ class NewsFeedViewController: UIViewController {
 extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presentor.rawNews?.count ?? 0
+
+        return presentor.newsFeed.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell", for: indexPath) as! NewsFeedTableViewCell
-        cell.presentor = NewsFeedTableViewCellPresentor(view: cell, model: presentor.rawNews![indexPath.row])
+        cell.presentor = NewsFeedTableViewCellPresentor(view: cell, model: presentor.newsFeed[indexPath.row])
+        
+        
         
         return cell
     }

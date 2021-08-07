@@ -15,7 +15,8 @@ class ModuleBuilder: Builder {
     static func createNewsFeedModule() -> UIViewController {
         let view = NewsFeedViewController()
         let networkService = NewsFeedNetworkServices()
-        let presentor = NewsFeedPresentor(view: view, networkServices: networkService)
+        let storageService = StorageManager()
+        let presentor = NewsFeedPresentor(view: view, networkServices: networkService, storageServices: storageService)
         
         view.presentor = presentor
         
