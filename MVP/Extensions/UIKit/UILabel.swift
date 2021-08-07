@@ -8,7 +8,7 @@
 import UIKit
 
 extension UILabel {
-    convenience init(font: UIFont? = UIFont.AvenirNext(size: 14), aligment: NSTextAlignment = .left, color: UIColor = .black, lines: Int = 1, sizeToFit: Bool = false, shadow: Bool = false) {
+    convenience init(font: UIFont? = UIFont.AvenirNext(size: 14), aligment: NSTextAlignment = .left, color: UIColor = UIColor(named: "textColor")!, lines: Int = 1, sizeToFit: Bool = false, shadow: Bool = false) {
         self.init()
         self.translatesAutoresizingMaskIntoConstraints = false
         self.textAlignment = aligment
