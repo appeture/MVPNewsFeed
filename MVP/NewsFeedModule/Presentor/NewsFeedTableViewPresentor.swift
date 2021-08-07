@@ -21,7 +21,7 @@ class NewsFeedPresentor: NewsFeedPresentorOutputProtocol, NewsFeedTableViewPrese
     
     weak var view: NewsFeedTableViewControllerProtocol!
     private var networkServices: NetworkServicesProtocol!
-    private let storageServices: StorageManagerProtocol!
+    private var storageServices: StorageManagerProtocol!
     var newsFeed: [News] = []
     
     
@@ -31,22 +31,24 @@ class NewsFeedPresentor: NewsFeedPresentorOutputProtocol, NewsFeedTableViewPrese
         self.view = view
         self.networkServices = networkServices
         self.storageServices = storageServices
-        getNewsFromDB()
     }
     
     
     func getNews() {
-        if newsFeed.isEmpty {
-            downloadNewsFromNetworkService()
-        }
-        self.view.newsDidLoaded()
+        getNewsFromDB()
+        
     }
     
     private func getNewsFromDB() {
         storageServices.fetchData { result in
             switch result {
             case .success(let news):
-                self.newsFeed = news
+                    self.newsFeed = news
+                if news.isEmpty {
+                    self.downloadNewsFromNetworkService()
+                } else {
+                    self.view.newsDidLoaded()
+                }
             case .failure(let error):
                 print(error)
             }
@@ -54,28 +56,30 @@ class NewsFeedPresentor: NewsFeedPresentorOutputProtocol, NewsFeedTableViewPrese
     }
     
     private func downloadNewsFromNetworkService() {
-        
         networkServices.getNews { [weak self] result in
             guard let self = self else { return }
             
-            switch result {
-            case .success(let rawNews):
-                self.saveNewsInDB(rawNews: rawNews)
-                
-            case .failure(let error):
-                print(error)
-            }
+                switch result {
+                case .success(let rawNews):
+                    self.saveNewsInDB(rawNews: rawNews)
+                case .failure(let error):
+                    print(error)
+                }
+            
         }
-        getNewsFromDB()
     }
     
     private func saveNewsInDB(rawNews: [Article]?) {
-        rawNews?.forEach { news in
-            networkServices.getImageData(from: news.urlToImage) { image in
-                self.storageServices.save(news, imageData: image)
+        DispatchQueue.global(qos: .userInitiated).async {
+            rawNews?.forEach { news in
+                self.networkServices.getImageData(from: news.urlToImage) { image in
+                    self.storageServices.save(news, imageData: image)
+                    self.getNews()
+                }
             }
             
         }
+        
     }
     
 }
