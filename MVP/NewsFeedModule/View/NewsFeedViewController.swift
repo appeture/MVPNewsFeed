@@ -43,8 +43,7 @@ class NewsFeedViewController: UIViewController {
     
         
         let header = StrechyTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width))
-        guard let imageForHeader = presentor.newsFeed.first?.image else { return }
-        header.imageView.image = UIImage(data: imageForHeader)
+        header.presentor = NewsFeedTableViewCellPresentor(view: header, model: presentor.newsFeed.first!)
         tableView.tableHeaderView = header
     }
     
@@ -89,12 +88,12 @@ extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return presentor.newsFeed.count
+        return presentor.newsFeed.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell", for: indexPath) as! NewsFeedTableViewCell
-        cell.presentor = NewsFeedTableViewCellPresentor(view: cell, model: presentor.newsFeed[indexPath.row])
+        cell.presentor = NewsFeedTableViewCellPresentor(view: cell, model: presentor.newsFeed[indexPath.row + 1])
         
         return cell
     }
@@ -102,7 +101,7 @@ extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
     func addNews() {
         setupTableView()
         self.activityIndicator.stopAnimating()
-        tableView.insertRows(at: [IndexPath(item: presentor.newsFeed.count - 1, section: 0)], with: .fade)
+        tableView.insertRows(at: [IndexPath(item: presentor.newsFeed.count - 2, section: 0)], with: .fade)
     }
     
 }

@@ -80,6 +80,7 @@ class NewsFeedPresentor: NewsFeedPresentorOutputProtocol, NewsFeedTableViewPrese
                     } else {
                         self.view.addNews()
                     }
+                    
                 }
             }
         }

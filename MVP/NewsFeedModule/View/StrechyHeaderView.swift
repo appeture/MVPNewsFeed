@@ -9,11 +9,34 @@ import UIKit
 
     final class StrechyTableHeaderView: UIView {
         
-        public let imageView: UIImageView = {
+        var presentor: NewsFeedTableViewCellPresentorProtocol!
+        
+        private let imageView: UIImageView = {
             let imageView = UIImageView()
             imageView.clipsToBounds = true
             imageView.contentMode = .scaleAspectFill
             return imageView
+        }()
+        
+        private let titleLabel: UILabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textAlignment = .left
+            label.adjustsFontSizeToFitWidth = true
+            label.numberOfLines = 4
+            label.textColor = .white
+            
+            return label
+        }()
+        
+        private let dateLabel: UILabel = {
+            let label = UILabel()
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.textAlignment = .justified
+            label.adjustsFontSizeToFitWidth = true
+            label.textColor = .white
+            
+            return label
         }()
         
         private var imageViewHeight = NSLayoutConstraint()
@@ -34,6 +57,8 @@ import UIKit
         private func createViews() {
             addSubview(containerView)
             containerView.addSubview(imageView)
+            containerView.addSubview(dateLabel)
+            containerView.addSubview(titleLabel)
         }
         
         private func setViewsConstraints() {
@@ -53,6 +78,18 @@ import UIKit
             imageViewBottom.isActive = true
             imageViewHeight = imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor)
             imageViewHeight.isActive = true
+            
+            NSLayoutConstraint.activate([
+                dateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
+                dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+                dateLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8)
+            ])
+            NSLayoutConstraint.activate([
+                titleLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -10),
+                titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+                titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+                
+            ])
         }
         
         public func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -67,3 +104,18 @@ import UIKit
     }
 
 
+//MARK: - NewsFeedTableViewCellProtocol
+
+extension StrechyTableHeaderView: NewsFeedTableViewCellProtocol {
+    func setImage(with imageData: Data) {
+        imageView.image = UIImage(data: imageData)
+    }
+    
+    func setTitle(with title: String) {
+        titleLabel.text = title
+    }
+    
+    func setDate(with date: String) {
+        dateLabel.text = date
+    }
+}
