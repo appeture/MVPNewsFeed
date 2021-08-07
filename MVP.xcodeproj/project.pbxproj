@@ -19,7 +19,6 @@
 		844C34DA26B44C5C002F0EF0 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34D926B44C5C002F0EF0 /* NewsFeedTableViewCell.swift */; };
 		844C34DC26B45E33002F0EF0 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34DB26B45E33002F0EF0 /* UIFont.swift */; };
 		844C34E026B46198002F0EF0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C34DF26B46198002F0EF0 /* String.swift */; };
-		8499D24B26AD799F00E389FA /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8499D24A26AD799F00E389FA /* UIStackView.swift */; };
 		849B85DE26B5304900941432 /* NewsFeedTableViewCellPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B85DD26B5304900941432 /* NewsFeedTableViewCellPresentor.swift */; };
 		84A652A8269F327400432EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A652A7269F327400432EFB /* AppDelegate.swift */; };
 		84A652B1269F327700432EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A652B0269F327700432EFB /* Assets.xcassets */; };
@@ -51,7 +50,6 @@
 		844C34D926B44C5C002F0EF0 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		844C34DB26B45E33002F0EF0 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		844C34DF26B46198002F0EF0 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		8499D24A26AD799F00E389FA /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		849B85DD26B5304900941432 /* NewsFeedTableViewCellPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellPresentor.swift; sourceTree = "<group>"; };
 		84A652A4269F327400432EFB /* MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A652A7269F327400432EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 		8499D24926AD798800E389FA /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				8499D24A26AD799F00E389FA /* UIStackView.swift */,
 				844C34DB26B45E33002F0EF0 /* UIFont.swift */,
 				844C34DF26B46198002F0EF0 /* String.swift */,
 				8435BA7826B8FAC400403ADB /* UILabel.swift */,
@@ -175,6 +172,7 @@
 				84A652A5269F327400432EFB /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		84A652A5269F327400432EFB /* Products */ = {
 			isa = PBXGroup;
@@ -327,7 +325,6 @@
 				8435BA7926B8FAC400403ADB /* UILabel.swift in Sources */,
 				8435BAC926BCF21000403ADB /* StorageManager.swift in Sources */,
 				8435BA8426BC332A00403ADB /* StrechyHeaderView.swift in Sources */,
-				8499D24B26AD799F00E389FA /* UIStackView.swift in Sources */,
 				844C34D226B32E02002F0EF0 /* RawNewsFeed.swift in Sources */,
 				8435BACC26BCF22C00403ADB /* NewsFeed.xcdatamodeld in Sources */,
 				849B85DE26B5304900941432 /* NewsFeedTableViewCellPresentor.swift in Sources */,
@@ -394,7 +391,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -455,7 +452,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;

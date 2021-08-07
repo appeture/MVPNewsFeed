@@ -7,7 +7,7 @@
 
 import UIKit
 
-    final class StrechyTableHeaderView: UIView {
+    class StrechyTableHeaderView: UIView {
         
         var presentor: NewsFeedTableViewCellPresentorProtocol!
         
@@ -18,26 +18,15 @@ import UIKit
             return imageView
         }()
         
-        private let titleLabel: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.textAlignment = .left
-            label.adjustsFontSizeToFitWidth = true
-            label.numberOfLines = 4
-            label.textColor = .white
-            
-            return label
-        }()
+        private let titleLabel = UILabel(font: .AvenirNext(.regular, size: 20),
+                                         color: .white,
+                                         lines: 4,
+                                         sizeToFit: true, shadow: true)
         
-        private let dateLabel: UILabel = {
-            let label = UILabel()
-            label.translatesAutoresizingMaskIntoConstraints = false
-            label.textAlignment = .justified
-            label.adjustsFontSizeToFitWidth = true
-            label.textColor = .white
-            
-            return label
-        }()
+        private let dateLabel = UILabel(font: .AvenirNext(.demiBold, size: 16),
+                                        aligment: .center,
+                                        color: .white, shadow: true)
+        
         
         private var imageViewHeight = NSLayoutConstraint()
         private var imageViewBottom = NSLayoutConstraint()
@@ -55,7 +44,9 @@ import UIKit
         }
         
         private func createViews() {
+            
             addSubview(containerView)
+            
             containerView.addSubview(imageView)
             containerView.addSubview(dateLabel)
             containerView.addSubview(titleLabel)
@@ -67,6 +58,7 @@ import UIKit
                 centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
                 heightAnchor.constraint(equalTo: containerView.heightAnchor)
             ])
+            
             containerView.translatesAutoresizingMaskIntoConstraints = false
             
             containerView.widthAnchor.constraint(equalTo: imageView.widthAnchor).isActive = true

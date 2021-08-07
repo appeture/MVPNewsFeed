@@ -66,17 +66,19 @@ class NewsFeedViewController: UIViewController {
     private func configureNavBar() {
         title = "NEWS"
         
-        navigationController?.navigationBar.prefersLargeTitles = false
-        let navBarAppearance = UINavigationBarAppearance()
+//        navigationController?.navigationBar.prefersLargeTitles = true
         
-        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05)
+        let standartNavBarAppearance = UINavigationBarAppearance()
         
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        standartNavBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        standartNavBarAppearance.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        standartNavBarAppearance.backgroundEffect = .none
         
         
-        navigationController?.navigationBar.tintColor = .cyan
+        navigationController?.navigationBar.standardAppearance = standartNavBarAppearance
+        
+        
+        
     }
     
     

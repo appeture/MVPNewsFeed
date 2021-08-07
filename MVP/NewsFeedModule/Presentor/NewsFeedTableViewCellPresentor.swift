@@ -23,20 +23,10 @@ class NewsFeedTableViewCellPresentor: NewsFeedTableViewCellPresentorProtocol {
         guard let title = model.title else { return }
         guard let imageData = model.image else { return }
         guard let date = model.publishedAt else { return }
+        
         view.setTitle(with: title)
-        view.setDate(with: date)
+        view.setDate(with: date.formateForStringDate())
         view.setImage(with: imageData)
     }
-    
-//    func configureImageCell() {
-//        let networkService = NewsFeedNetworkServices()
-//        networkService.getImageData(
-//            from: model.urlToImage) { image in
-//            if let image = image {
-//                self.view.setImage(with: image)
-//            }
-//        }
-//    }
-
     
 }

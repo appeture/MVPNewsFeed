@@ -10,21 +10,21 @@ import UIKit
 
 extension UIFont {
 
-    public enum OpenSansType: String {
-        case extraboldItalic = "-ExtraboldItalic"
-        case semiboldItalic = "-SemiboldItalic"
-        case semibold = "-Semibold"
+    public enum AvenirNextSansType: String {
+        case bold = " Bold"
+        case boldItalic = " Bold Italic"
+        case demiBold = " Demi Bold"
+        case demiBoldItalic = " Demi Bold Italic"
+        case italic = " Italic"
+        case medium = " Medium"
+        case mediumItalic = " Medium Italic"
         case regular = ""
-        case lightItalic = "Light-Italic"
-        case light = "-Light"
-        case italic = "-Italic"
-        case extraBold = "-Extrabold"
-        case boldItalic = "-BoldItalic"
-        case bold = "-Bold"
+        case ultraLight = " Ultra Light"
+        case ultraLightItalic = " Ultra Light Italic"
     }
 
-    static func OpenSans(_ type: OpenSansType = .regular, size: CGFloat = UIFont.systemFontSize) -> UIFont {
-        return UIFont(name: "OpenSans\(type.rawValue)", size: size)!
+    static func AvenirNext(_ type: AvenirNextSansType = .regular, size: CGFloat = UIFont.systemFontSize) -> UIFont {
+        return UIFont(name: "Avenir Next\(type.rawValue)", size: size)!
     }
 
     var isBold: Bool {

@@ -19,17 +19,13 @@ class NewsFeedTableViewCell: UITableViewCell {
     var presentor: NewsFeedTableViewCellPresentorProtocol!
     let identifier = "NewsFeedCell"
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
-        label.numberOfLines = 4
-        
-        
-        return label
-    }()
+    private let titleLabel = UILabel(font: .AvenirNext(.regular, size: 16),
+                                     lines: 4,
+                                     sizeToFit: true)
+    
+    private let dateLabel = UILabel(font: .AvenirNext(.demiBold, size: 14),
+                                    aligment: .center,
+                                    color: .systemBlue)
     
     private lazy var newFeedImage: UIImageView = {
         let image = UIImageView()
@@ -40,14 +36,7 @@ class NewsFeedTableViewCell: UITableViewCell {
         return image
     }()
     
-    private let dateLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.textColor = .systemBlue
-
-        return label
-    }()
+    
     
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -82,7 +71,7 @@ class NewsFeedTableViewCell: UITableViewCell {
     func setupTitleLabelConstraint() {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: newFeedImage.trailingAnchor, constant: 8),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8)
         ])
     }

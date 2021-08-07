@@ -7,17 +7,20 @@
 
 import Foundation
 extension String {
-
-    func toDate(withFormat format: String = "yyyy-MM-dd HH:mm:ss")-> Date?{
-
+    
+    func formateForStringDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.locale = Locale.current
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.dateFormat = format
-        let date = dateFormatter.date(from: self)
-        print("success")
-        return date
-
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from:self)!
+    
+        let newDateFormatter = DateFormatter()
+        newDateFormatter.dateStyle = .full
+        newDateFormatter.doesRelativeDateFormatting = true
+        let stringDate = newDateFormatter.string(from: date)
+        
+        return stringDate
+        
     }
+    
 }
