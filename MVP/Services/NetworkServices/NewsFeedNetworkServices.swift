@@ -18,7 +18,7 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
     
     func getNews(completion: @escaping (Result<[Article]?, Error>) -> Void) {
         guard let url = URL(
-                string: "https://newsapi.org/v2/everything?q=keyword&apiKey=c4e6c2ba6e874a47b99f378d564f6aed"
+                string: "https://newsapi.org/v2/top-headlines?country=ru&apiKey=\(apiKey)"
         ) else { return }
         
         let request = URLRequest(url: url)

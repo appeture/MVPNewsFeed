@@ -17,7 +17,10 @@ extension String {
         let newDateFormatter = DateFormatter()
         newDateFormatter.dateStyle = .full
         newDateFormatter.doesRelativeDateFormatting = true
+        newDateFormatter.timeStyle = .short
+        newDateFormatter.locale = Locale(identifier: "ru-RU")
         let stringDate = newDateFormatter.string(from: date)
+        
         
         return stringDate
         
