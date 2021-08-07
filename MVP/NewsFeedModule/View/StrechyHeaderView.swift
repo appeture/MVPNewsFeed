@@ -51,7 +51,7 @@ import UIKit
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageViewBottom = imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
             imageViewBottom.isActive = true
-            imageViewHeight = imageView.topAnchor.constraint(equalTo: containerView.topAnchor)
+            imageViewHeight = imageView.heightAnchor.constraint(equalTo: containerView.heightAnchor)
             imageViewHeight.isActive = true
         }
         
@@ -60,7 +60,7 @@ import UIKit
             let offsetY = -(scrollView.contentOffset.y + scrollView.contentInset.top)
             containerView.clipsToBounds = offsetY <= 0
             imageViewBottom.constant = offsetY >= 0 ? 0 : -offsetY / 2
-            imageViewBottom.constant = max(offsetY + scrollView.contentInset.top,
+            imageViewHeight.constant = max(offsetY + scrollView.contentInset.top,
                                            scrollView.contentInset.top)
         }
         

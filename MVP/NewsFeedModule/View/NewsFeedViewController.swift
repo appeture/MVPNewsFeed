@@ -71,7 +71,7 @@ class NewsFeedViewController: UIViewController {
         let navBarAppearance = UINavigationBarAppearance()
         
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navBarAppearance.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        navBarAppearance.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05)
         
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
