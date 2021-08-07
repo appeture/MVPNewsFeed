@@ -73,11 +73,16 @@ class NewsFeedPresentor: NewsFeedPresentorOutputProtocol, NewsFeedTableViewPrese
         DispatchQueue.global(qos: .userInitiated).async {
             rawNews?.forEach { news in
                 self.networkServices.getImageData(from: news.urlToImage) { image in
-                    self.storageServices.save(news, imageData: image)
-                    self.getNews()
+                    let news = self.storageServices.save(news, imageData: image)
+                    self.newsFeed.append(news)
+                    if self.newsFeed.count == 1 {
+                        self.view.newsDidLoaded()
+                    } else {
+                        self.view.addNews()
+                    }
+                    
                 }
             }
-            
         }
         
     }

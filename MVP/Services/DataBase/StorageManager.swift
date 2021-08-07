@@ -9,7 +9,7 @@ import CoreData
 
 protocol StorageManagerProtocol {
         func fetchData(completion: @escaping(Result<[News], Error>) -> Void)
-        func save(_ rawNew: Article, imageData: Data?)
+        func save(_ rawNew: Article, imageData: Data?) -> News
 }
 
 class StorageManager: StorageManagerProtocol {
@@ -39,7 +39,7 @@ class StorageManager: StorageManagerProtocol {
         }
     }
     
-    func save(_ rawNew: Article, imageData: Data?) {
+    func save(_ rawNew: Article, imageData: Data?) -> News {
         
         let news = News(context: container.viewContext)
         news.title = rawNew.title
@@ -54,18 +54,21 @@ class StorageManager: StorageManagerProtocol {
         }
         
         saveContext()
-        
+        return news
     }
     
     private func saveContext() {
         if container.viewContext.hasChanges {
             do {
                 try container.viewContext.save()
-                print("success savecontext")
             } catch let error {
                 print("Error save context in CoreData \(error)")
             }
         }
+    }
+    
+    func clearData() {
+        
     }
     
 }

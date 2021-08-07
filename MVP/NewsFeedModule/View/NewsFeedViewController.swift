@@ -9,6 +9,7 @@ import UIKit
 
 protocol NewsFeedTableViewControllerProtocol: AnyObject {
     func newsDidLoaded()
+    func addNews()
 }
 
 class NewsFeedViewController: UIViewController {
@@ -95,9 +96,13 @@ extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell", for: indexPath) as! NewsFeedTableViewCell
         cell.presentor = NewsFeedTableViewCellPresentor(view: cell, model: presentor.newsFeed[indexPath.row])
         
-        
-        
         return cell
+    }
+    
+    func addNews() {
+        setupTableView()
+        self.activityIndicator.stopAnimating()
+        tableView.insertRows(at: [IndexPath(item: presentor.newsFeed.count - 1, section: 0)], with: .fade)
     }
     
 }
