@@ -23,5 +23,7 @@ class DetailNewsInfoCellPresentor: DetailNewsInfoCellPresentorProtocol {
         view.setDescription(with: model.articleDescription ?? "Нет данных")
         view.setNameAutor(with: model.author ?? "Автор неизвестен")
         view.setName(with: model.name ?? "")
+        guard let url = model.url else { return }
+        view.setLinkForButton(with: url)
     }
 }

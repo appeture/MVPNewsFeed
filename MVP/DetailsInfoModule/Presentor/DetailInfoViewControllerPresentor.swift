@@ -27,7 +27,7 @@ class DetailInfoViewControllerPresentor: DetailInfoViewControllerInputPresentorP
     required init(view: DetailsInfoViewControllerProtocol, model: News) {
         self.view = view
         self.model = model
-        
+
     }
     
     func prepareData() {

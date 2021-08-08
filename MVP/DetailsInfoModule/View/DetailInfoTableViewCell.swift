@@ -19,6 +19,8 @@ class DetailInfoTableViewCell: UITableViewCell {
     var presentor: DetailNewsInfoCellPresentorProtocol!
     let identifier = "DetailsInfoCell"
     
+    private var url: URL? = nil
+    
     private let desctiptionLabel = UILabel(font: .AvenirNext(.regular, size: 16),
                                            color: .black,
                                            lines: 0,
@@ -32,20 +34,28 @@ class DetailInfoTableViewCell: UITableViewCell {
                                          aligment: .center,
                                          color: .darkGray)
     
+    private let urlButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .black
+        button.setTitle("Ссылка на новость", for: .normal)
+        button.titleLabel?.font = UIFont.AvenirNext(.bold, size: 14)
+        button.layer.cornerRadius = 10
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupNameAutorLabelConstraint()
         setupNameLabelConstraints()
         setupDescriptionLabelConstraint()
-        
+        setupLinkButtonConstraints()
         
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     func setupNameAutorLabelConstraint() {
         contentView.addSubview(nameAutorLabel)
@@ -62,11 +72,8 @@ class DetailInfoTableViewCell: UITableViewCell {
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
     }
-   
-    
     
     func setupDescriptionLabelConstraint() {
-        
         contentView.addSubview(desctiptionLabel)
         NSLayoutConstraint.activate([
             desctiptionLabel.topAnchor.constraint(equalTo: nameAutorLabel.bottomAnchor, constant: 16),
@@ -75,6 +82,20 @@ class DetailInfoTableViewCell: UITableViewCell {
         ])
     }
     
+    func setupLinkButtonConstraints() {
+        contentView.addSubview(urlButton)
+        urlButton.addTarget(self, action: #selector(goURL), for: .touchUpInside)
+        NSLayoutConstraint.activate([
+            urlButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            urlButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            urlButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+        ])
+    }
+    
+    @objc func goURL() {
+        guard let url = url else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
     
 }
 
@@ -92,5 +113,11 @@ extension DetailInfoTableViewCell: DetailInfoTableViewCellProtocol {
     func setDescription(with description: String) {
         desctiptionLabel.text = description
     }
+    
+    func setLinkForButton(with link: URL) {
+        self.url = link
+    }
+
+
     
 }
