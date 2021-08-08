@@ -6,14 +6,14 @@
 import Foundation
 
 // MARK: - NewsFeed
-struct RawNewsFeed: Codable {
+struct RawNewsFeed: Decodable {
     let status: String?
     let totalResults: Int?
     let articles: [Article]?
 }
 
 // MARK: - Article
-struct Article: Codable {
+struct Article: Decodable {
     let source: Source?
     let author: String?
     let title: String?
@@ -24,14 +24,19 @@ struct Article: Codable {
     let content: String?
 
     enum CodingKeys: String, CodingKey {
-        case source, author, title
-        case articleDescription
-        case url, urlToImage, publishedAt, content
+        case source
+        case author
+        case title
+        case articleDescription = "description"
+        case url
+        case urlToImage
+        case publishedAt
+        case content
     }
 }
 
 // MARK: - Source
-struct Source: Codable {
+struct Source: Decodable {
     let id: String?
     let name: String?
 }

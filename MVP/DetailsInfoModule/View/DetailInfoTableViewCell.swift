@@ -19,7 +19,7 @@ class DetailInfoTableViewCell: UITableViewCell {
     
     private let desctiptionLabel = UILabel(font: .AvenirNext(.regular, size: 16),
                                            color: .black,
-                                           lines: 4,
+                                           lines: 0,
                                            sizeToFit: false)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

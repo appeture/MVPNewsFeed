@@ -18,7 +18,7 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
     
     func getNews(completion: @escaping (Result<[Article]?, Error>) -> Void) {
         guard let url = URL(
-            string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=\(apiKey)"
+            string: "https://newsapi.org/v2/top-headlines?country=ru&apiKey=\(apiKey)"
         ) else { return }
         
         let request = URLRequest(url: url)
@@ -33,7 +33,6 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
                 do {
                     let newsFeed = try JSONDecoder().decode(RawNewsFeed.self, from: data)
                     completion(.success(newsFeed.articles))
-                    print(newsFeed.articles?.first?.articleDescription)
                 } catch let error {
                     completion(.failure(error))
                 }
