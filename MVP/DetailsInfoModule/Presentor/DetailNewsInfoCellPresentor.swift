@@ -20,9 +20,8 @@ class DetailNewsInfoCellPresentor: DetailNewsInfoCellPresentorProtocol {
         self.view = view
         self.model = model
             
-        view.setDescription(with: model.articleDescription ?? "no content")
-        
+        view.setDescription(with: model.articleDescription ?? "Нет данных")
+        view.setNameAutor(with: model.author ?? "Автор неизвестен")
+        view.setName(with: model.name ?? "")
     }
-    
-    
 }

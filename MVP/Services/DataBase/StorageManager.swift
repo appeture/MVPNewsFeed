@@ -46,6 +46,7 @@ class StorageManager: StorageManagerProtocol {
         news.content = rawNew.content
         news.author = rawNew.author
         news.articleDescription = rawNew.articleDescription
+        news.name = rawNew.source?.name
         if let publishedAt = rawNew.publishedAt {
             news.publishedAt = publishedAt.toDate()
         }
