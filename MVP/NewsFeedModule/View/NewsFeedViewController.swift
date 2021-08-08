@@ -45,11 +45,18 @@ class NewsFeedViewController: UIViewController {
         
         let header = StrechyTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width))
         header.presentor = NewsFeedTableViewCellPresentor(view: header, model: presentor.newsFeed.first!)
+        let gesture = UITapGestureRecognizer()
+        header.addGestureRecognizer(gesture)
+        gesture.addTarget(self, action: #selector(headerDidTaped))
         
         tableView.tableHeaderView = header
     }
     
-    
+    @objc private func headerDidTaped() {
+        let detailVC = ModuleBuilder.createDetailInfoNews(with: presentor.newsFeed.first!)
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+    }
     
     
     private func setupActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
@@ -107,11 +114,8 @@ extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let detailVC = ModuleBuilder.createDetailInfoNews(with: presentor.newsFeed[indexPath.row])
+        let detailVC = ModuleBuilder.createDetailInfoNews(with: presentor.newsFeed[indexPath.row + 1])
         navigationController?.pushViewController(detailVC, animated: true)
-        
-        
-        
     }
     
 }
