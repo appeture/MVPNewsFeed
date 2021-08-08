@@ -25,8 +25,11 @@ class ModuleBuilder: Builder {
         return view
     }
     
-    static func createTestView() -> UIViewController {
-        return NewsFeedViewController()
+    static func createDetailInfoNews(with model: News) -> UIViewController {
+        let view = DetailsInfoViewController()
+        let presentor = DetailInfoViewControllerPresentor(view: view, model: model)
+        view.presentor = presentor
+        return view
     }
     
 }

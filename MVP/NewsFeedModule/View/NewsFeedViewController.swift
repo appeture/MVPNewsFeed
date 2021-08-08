@@ -10,6 +10,7 @@ import UIKit
 protocol NewsFeedTableViewControllerProtocol: AnyObject {
     func newsDidLoaded()
     func addNews()
+    
 }
 
 class NewsFeedViewController: UIViewController {
@@ -44,6 +45,7 @@ class NewsFeedViewController: UIViewController {
         
         let header = StrechyTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width))
         header.presentor = NewsFeedTableViewCellPresentor(view: header, model: presentor.newsFeed.first!)
+        
         tableView.tableHeaderView = header
     }
     
@@ -74,13 +76,16 @@ class NewsFeedViewController: UIViewController {
         standartNavBarAppearance.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
         standartNavBarAppearance.backgroundEffect = .none
         
-        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(refreshUI))
         navigationController?.navigationBar.standardAppearance = standartNavBarAppearance
         
         
         
     }
     
+    @objc private func refreshUI() {
+        presentor.refreshNews()
+    }
     
 }
 
@@ -100,10 +105,13 @@ extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func addNews() {
-        setupTableView()
-        self.activityIndicator.stopAnimating()
-        tableView.insertRows(at: [IndexPath(item: presentor.newsFeed.count - 2, section: 0)], with: .fade)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailVC = ModuleBuilder.createDetailInfoNews(with: presentor.newsFeed[indexPath.row])
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+        
+        
     }
     
 }
@@ -114,13 +122,19 @@ extension NewsFeedViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let header = tableView.tableHeaderView as? StrechyTableHeaderView else { return }
         header.scrollViewDidScroll(scrollView: tableView)
-        
     }
 }
 
 // MARK: - NewsFeedTableViewControllerProtocol
 
 extension NewsFeedViewController: NewsFeedTableViewControllerProtocol {
+    
+    func addNews() {
+        setupTableView()
+        self.activityIndicator.stopAnimating()
+        tableView.insertRows(at: [IndexPath(item: presentor.newsFeed.count - 2, section: 0)], with: .fade)
+    }
+    
     func newsDidLoaded() {
             self.setupTableView()
             self.tableView.reloadData()

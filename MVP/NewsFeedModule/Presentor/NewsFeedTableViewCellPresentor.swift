@@ -12,8 +12,9 @@ protocol NewsFeedTableViewCellPresentorProtocol {
 }
 
 
+
 class NewsFeedTableViewCellPresentor: NewsFeedTableViewCellPresentorProtocol {
-    
+
     weak var view: NewsFeedTableViewCellProtocol!
     let model: News!
     required init(view: NewsFeedTableViewCellProtocol, model: News) {
@@ -25,8 +26,9 @@ class NewsFeedTableViewCellPresentor: NewsFeedTableViewCellPresentorProtocol {
         guard let date = model.publishedAt else { return }
         
         view.setTitle(with: title)
-        view.setDate(with: date.formateForStringDate())
+        view.setDate(with: date.toString())
         view.setImage(with: imageData)
     }
     
+
 }

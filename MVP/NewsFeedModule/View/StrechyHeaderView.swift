@@ -46,7 +46,6 @@ import UIKit
         private func createViews() {
             
             addSubview(containerView)
-            
             containerView.addSubview(imageView)
             containerView.addSubview(dateLabel)
             containerView.addSubview(titleLabel)
@@ -110,4 +109,5 @@ extension StrechyTableHeaderView: NewsFeedTableViewCellProtocol {
     func setDate(with date: String) {
         dateLabel.text = date
     }
+    
 }

@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         let view = ModuleBuilder.createNewsFeedModule()
-//        let view = NewsFeedViewController()
         window?.rootViewController = UINavigationController(rootViewController: view)
         
         return true

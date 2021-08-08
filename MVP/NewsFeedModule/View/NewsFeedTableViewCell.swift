@@ -46,7 +46,6 @@ class NewsFeedTableViewCell: UITableViewCell {
         setupNewFeedImageConstraint()
         setupTitleLabelConstraint()
         setupDateLabelConstraint()
-        
     }
     
     required init?(coder: NSCoder) {

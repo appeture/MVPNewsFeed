@@ -9,7 +9,7 @@ import Foundation
 
 protocol NewsFeedTableViewPresentorInputProtocol {
     func getNews()
-    
+    func refreshNews()
     var newsFeed: [News] { get }
 }
 
@@ -35,6 +35,11 @@ class NewsFeedPresentor: NewsFeedPresentorOutputProtocol, NewsFeedTableViewPrese
     
     
     func getNews() {
+        getNewsFromDB()
+    }
+    
+    func refreshNews() {
+        storageServices.deleteAllData()
         getNewsFromDB()
         
     }

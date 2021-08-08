@@ -10,6 +10,7 @@ import CoreData
 protocol StorageManagerProtocol {
         func fetchData(completion: @escaping(Result<[News], Error>) -> Void)
         func save(_ rawNew: Article, imageData: Data?) -> News
+        func deleteAllData()
 }
 
 class StorageManager: StorageManagerProtocol {
@@ -24,7 +25,6 @@ class StorageManager: StorageManagerProtocol {
             } else {
                 print("COREDATA LOADING SUCCESS")
             }
-            
         }
     }
     
@@ -45,7 +45,11 @@ class StorageManager: StorageManagerProtocol {
         news.title = rawNew.title
         news.content = rawNew.content
         news.author = rawNew.author
-        news.publishedAt = rawNew.publishedAt
+        news.articleDescription = rawNew.articleDescription
+        if let publishedAt = rawNew.publishedAt {
+            news.publishedAt = publishedAt.toDate()
+        }
+        
         news.image = imageData
         if let stringUrl = rawNew.url {
             news.url = URL(string: stringUrl)
@@ -67,8 +71,18 @@ class StorageManager: StorageManagerProtocol {
         }
     }
     
-    func clearData() {
-        
+    func deleteAllData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "News")
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try container.viewContext.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                container.viewContext.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \("news") error :", error)
+        }
     }
     
 }

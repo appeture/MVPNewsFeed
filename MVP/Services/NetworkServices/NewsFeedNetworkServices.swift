@@ -18,7 +18,7 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
     
     func getNews(completion: @escaping (Result<[Article]?, Error>) -> Void) {
         guard let url = URL(
-                string: "https://newsapi.org/v2/top-headlines?country=ru&apiKey=\(apiKey)"
+            string: "https://newsapi.org/v2/top-headlines?country=us&apiKey=\(apiKey)"
         ) else { return }
         
         let request = URLRequest(url: url)
@@ -30,30 +30,26 @@ class NewsFeedNetworkServices: NetworkServicesProtocol {
                     return
                 }
                 guard let data = data else { return }
-                
                 do {
                     let newsFeed = try JSONDecoder().decode(RawNewsFeed.self, from: data)
-                        completion(.success(newsFeed.articles))
+                    completion(.success(newsFeed.articles))
+                    print(newsFeed.articles?.first?.articleDescription)
                 } catch let error {
                     completion(.failure(error))
                 }
             }
-            }.resume()
-            
+        }.resume()
     }
     
-
+    
     func getImageData(from url: String?, completion: @escaping(Data?) -> Void) {
-        
         guard let url = URL(string: url ?? "") else { return }
         DispatchQueue.global(qos: .utility).async {
             guard let imageData = try? Data(contentsOf: url) else { return }
             DispatchQueue.main.async {
                 completion(imageData)
             }
-            
         }
-        
     }
     
 }
