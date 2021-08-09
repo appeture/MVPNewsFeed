@@ -22,7 +22,7 @@ class DetailInfoTableViewCell: UITableViewCell {
     private var url: URL? = nil
     
     private let desctiptionLabel = UILabel(font: .AvenirNext(.regular, size: 16),
-                                           color: .black,
+                                           
                                            lines: 0,
                                            sizeToFit: false)
     
@@ -37,7 +37,7 @@ class DetailInfoTableViewCell: UITableViewCell {
     private let urlButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .black
+        button.backgroundColor = UIColor(named: "textColor")
         button.setTitle("Ссылка на новость", for: .normal)
         button.titleLabel?.font = UIFont.AvenirNext(.bold, size: 14)
         button.layer.cornerRadius = 10
@@ -94,7 +94,9 @@ class DetailInfoTableViewCell: UITableViewCell {
     
     @objc func goURL() {
         guard let url = url else { return }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        let webkit = ModuleBuilder.createWebKitView(with: url)
+        self.window?.rootViewController?.present(webkit, animated: true, completion: nil)
+//        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
 }

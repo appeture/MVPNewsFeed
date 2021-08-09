@@ -32,4 +32,11 @@ class ModuleBuilder: Builder {
         return view
     }
     
+    static func createWebKitView(with url: URL) -> UIViewController {
+        let view = WebKitViewController()
+        let presentor = WebKitViewControllerPresentor(view: view, url: url)
+        view.presentor = presentor
+        return view
+    }
+    
 }

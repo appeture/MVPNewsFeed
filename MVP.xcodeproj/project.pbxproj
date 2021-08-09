@@ -28,6 +28,8 @@
 		8454E13F26BFCD7D0095B747 /* DetailInfoViewControllerPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454E13E26BFCD7D0095B747 /* DetailInfoViewControllerPresentor.swift */; };
 		8454E14126BFD53F0095B747 /* DetailInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454E14026BFD53F0095B747 /* DetailInfoTableViewCell.swift */; };
 		8454E14326BFD6440095B747 /* DetailNewsInfoCellPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454E14226BFD6440095B747 /* DetailNewsInfoCellPresentor.swift */; };
+		8454E14B26C02AFE0095B747 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454E14A26C02AFE0095B747 /* WebKitViewController.swift */; };
+		8454E14D26C02C1B0095B747 /* WebKitViewControllerPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8454E14C26C02C1B0095B747 /* WebKitViewControllerPresentor.swift */; };
 		849B85DE26B5304900941432 /* NewsFeedTableViewCellPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B85DD26B5304900941432 /* NewsFeedTableViewCellPresentor.swift */; };
 		84A652A8269F327400432EFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A652A7269F327400432EFB /* AppDelegate.swift */; };
 		84A652B1269F327700432EFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A652B0269F327700432EFB /* Assets.xcassets */; };
@@ -66,6 +68,8 @@
 		8454E13E26BFCD7D0095B747 /* DetailInfoViewControllerPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewControllerPresentor.swift; sourceTree = "<group>"; };
 		8454E14026BFD53F0095B747 /* DetailInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoTableViewCell.swift; sourceTree = "<group>"; };
 		8454E14226BFD6440095B747 /* DetailNewsInfoCellPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsInfoCellPresentor.swift; sourceTree = "<group>"; };
+		8454E14A26C02AFE0095B747 /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
+		8454E14C26C02C1B0095B747 /* WebKitViewControllerPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewControllerPresentor.swift; sourceTree = "<group>"; };
 		849B85DD26B5304900941432 /* NewsFeedTableViewCellPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCellPresentor.swift; sourceTree = "<group>"; };
 		84A652A4269F327400432EFB /* MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A652A7269F327400432EFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +213,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8454E14726C02AC30095B747 /* WebKitModule */ = {
+			isa = PBXGroup;
+			children = (
+				8454E14926C02AEE0095B747 /* View */,
+				8454E14826C02AE60095B747 /* Presentor */,
+			);
+			path = WebKitModule;
+			sourceTree = "<group>";
+		};
+		8454E14826C02AE60095B747 /* Presentor */ = {
+			isa = PBXGroup;
+			children = (
+				8454E14C26C02C1B0095B747 /* WebKitViewControllerPresentor.swift */,
+			);
+			path = Presentor;
+			sourceTree = "<group>";
+		};
+		8454E14926C02AEE0095B747 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8454E14A26C02AFE0095B747 /* WebKitViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8499D24826AD797E00E389FA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				844C34D526B32E1F002F0EF0 /* Services */,
+				8454E14726C02AC30095B747 /* WebKitModule */,
 				8454E14426BFDEC00095B747 /* DetailsInfoModule */,
 				844C34CE26B3282B002F0EF0 /* NewsFeedModule */,
 				8499D24826AD797E00E389FA /* Extensions */,
@@ -410,12 +440,14 @@
 				8454E13C26BFAA7A0095B747 /* DetailInfoViewController.swift in Sources */,
 				8435BACC26BCF22C00403ADB /* NewsFeed.xcdatamodeld in Sources */,
 				8454E14126BFD53F0095B747 /* DetailInfoTableViewCell.swift in Sources */,
+				8454E14D26C02C1B0095B747 /* WebKitViewControllerPresentor.swift in Sources */,
 				849B85DE26B5304900941432 /* NewsFeedTableViewCellPresentor.swift in Sources */,
 				844C34E026B46198002F0EF0 /* String.swift in Sources */,
 				844C34DC26B45E33002F0EF0 /* UIFont.swift in Sources */,
 				84A652A8269F327400432EFB /* AppDelegate.swift in Sources */,
 				844C34DA26B44C5C002F0EF0 /* NewsFeedTableViewCell.swift in Sources */,
 				844C34D026B32847002F0EF0 /* NewsFeedTableViewPresentor.swift in Sources */,
+				8454E14B26C02AFE0095B747 /* WebKitViewController.swift in Sources */,
 				8435BA8626BC3A3700403ADB /* NewsFeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

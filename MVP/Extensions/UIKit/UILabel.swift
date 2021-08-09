@@ -18,7 +18,7 @@ extension UILabel {
         self.adjustsFontSizeToFitWidth = sizeToFit
         if shadow {
             self.layer.shadowColor = UIColor.black.cgColor
-            self.layer.shadowRadius = 3.0
+            self.layer.shadowRadius = 10
             self.layer.shadowOpacity = 1.0
             self.layer.shadowOffset = CGSize(width: 4, height: 4)
             self.layer.masksToBounds = false
