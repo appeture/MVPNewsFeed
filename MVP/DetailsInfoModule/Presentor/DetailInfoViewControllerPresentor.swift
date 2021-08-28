@@ -18,8 +18,6 @@ protocol DetailsInfoViewControllerOutputPresentorProtocol {
 
 class DetailInfoViewControllerPresentor: DetailInfoViewControllerInputPresentorProtocol, DetailsInfoViewControllerOutputPresentorProtocol {
     
-    
-    
     var model: News
 
     private weak var view: DetailsInfoViewControllerProtocol!
@@ -27,7 +25,6 @@ class DetailInfoViewControllerPresentor: DetailInfoViewControllerInputPresentorP
     required init(view: DetailsInfoViewControllerProtocol, model: News) {
         self.view = view
         self.model = model
-
     }
     
     func prepareData() {

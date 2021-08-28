@@ -11,8 +11,6 @@ protocol NewsFeedTableViewCellPresentorProtocol {
     init(view: NewsFeedTableViewCellProtocol, model: News)
 }
 
-
-
 class NewsFeedTableViewCellPresentor: NewsFeedTableViewCellPresentorProtocol {
 
     weak var view: NewsFeedTableViewCellProtocol!

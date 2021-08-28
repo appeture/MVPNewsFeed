@@ -94,20 +94,16 @@ import UIKit
         
     }
 
-
 //MARK: - NewsFeedTableViewCellProtocol
 
 extension StrechyTableHeaderView: NewsFeedTableViewCellProtocol {
     func setImage(with imageData: Data) {
         imageView.image = UIImage(data: imageData)
     }
-    
     func setTitle(with title: String) {
         titleLabel.text = title
     }
-    
     func setDate(with date: String) {
         dateLabel.text = date
     }
-    
 }

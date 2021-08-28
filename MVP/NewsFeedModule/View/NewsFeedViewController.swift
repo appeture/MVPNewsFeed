@@ -31,18 +31,15 @@ class NewsFeedViewController: UIViewController {
         activityIndicator = setupActivityIndicator(in: view)
         presentor.getNews()
         configureNavBar()
-        
     }
-    
     
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-        tableView.rowHeight = 100
-    
-        
+        tableView.rowHeight = UITableView.automaticDimension
+
         let header = StrechyTableHeaderView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.width))
         header.presentor = NewsFeedTableViewCellPresentor(view: header, model: presentor.newsFeed.first!)
         let gesture = UITapGestureRecognizer()
@@ -55,18 +52,15 @@ class NewsFeedViewController: UIViewController {
     @objc private func headerDidTaped() {
         let detailVC = ModuleBuilder.createDetailInfoNews(with: presentor.newsFeed.first!)
         navigationController?.pushViewController(detailVC, animated: true)
-        
     }
     
     
     private func setupActivityIndicator(in view: UIView) -> UIActivityIndicatorView {
         let activityIndicator = UIActivityIndicatorView(style: .large)
         
-        
         activityIndicator.startAnimating()
         activityIndicator.center = view.center
         activityIndicator.hidesWhenStopped = true
-        
         view.addSubview(activityIndicator)
         
         return activityIndicator
@@ -74,20 +68,14 @@ class NewsFeedViewController: UIViewController {
     
     private func configureNavBar() {
         title = "NEWS"
-        
 //        navigationController?.navigationBar.prefersLargeTitles = true
-        
         let standartNavBarAppearance = UINavigationBarAppearance()
-        
         standartNavBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         standartNavBarAppearance.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
         standartNavBarAppearance.backgroundEffect = .none
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(refreshUI))
         navigationController?.navigationBar.standardAppearance = standartNavBarAppearance
-        
-        
-        
     }
     
     @objc private func refreshUI() {
@@ -101,14 +89,12 @@ class NewsFeedViewController: UIViewController {
 extension NewsFeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return presentor.newsFeed.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewsFeedCell", for: indexPath) as! NewsFeedTableViewCell
         cell.presentor = NewsFeedTableViewCellPresentor(view: cell, model: presentor.newsFeed[indexPath.row + 1])
-        
         return cell
     }
     

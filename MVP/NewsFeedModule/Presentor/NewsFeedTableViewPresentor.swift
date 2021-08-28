@@ -24,7 +24,6 @@ class NewsFeedPresentor: NewsFeedPresentorOutputProtocol, NewsFeedTableViewPrese
     private var storageServices: StorageManagerProtocol!
     var newsFeed: [News] = []
     
-    
     required init(view: NewsFeedTableViewControllerProtocol,
                   networkServices: NetworkServicesProtocol,
                   storageServices: StorageManagerProtocol) {

@@ -36,9 +36,6 @@ class NewsFeedTableViewCell: UITableViewCell {
         return image
     }()
     
-    
-    
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -51,7 +48,7 @@ class NewsFeedTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     func setup(with views: UIView...) {
         views.forEach { view in
             addSubview(view)
@@ -59,11 +56,16 @@ class NewsFeedTableViewCell: UITableViewCell {
     }
     
     func setupNewFeedImageConstraint() {
+        
+        if titleLabel.numberOfLines > 3 {
+            newFeedImage.heightAnchor.constraint(equalToConstant: bounds.width / 3 + 15).isActive = true
+        }
         NSLayoutConstraint.activate([
             newFeedImage.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             newFeedImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
             newFeedImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             newFeedImage.widthAnchor.constraint(equalToConstant: bounds.width / 3),
+            
         ])
     }
     
@@ -82,8 +84,6 @@ class NewsFeedTableViewCell: UITableViewCell {
             dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
         ])
     }
-    
-    
 }
 
 //MARK: - NewsFeedTableViewCellProtocol
@@ -100,6 +100,4 @@ extension NewsFeedTableViewCell: NewsFeedTableViewCellProtocol {
     func setDate(with date: String) {
         dateLabel.text = date
     }
-    
-    
 }
